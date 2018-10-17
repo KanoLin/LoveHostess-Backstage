@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Validator;
-use App\Hostess;
 
 
-class RequestValidate
+class LoveHostessRequestValidate
 {
     public function handle($request,Closure $next)
     {
@@ -31,7 +30,7 @@ class RequestValidate
             'size'=>':attribute长度应为:size哦！'
         ];
 
-        $validator=Validator::make($request->all(),$validate,$strname,$msg);
+        $validator=Validator::make($request->all(),$validate,$msg,$strname);
         $errcode=0;
         $errmsg='';
         if ($validator->fails()){
