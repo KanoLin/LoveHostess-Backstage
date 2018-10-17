@@ -44,13 +44,6 @@ class RequestValidate
             ]);
         }
         
-        $hostess=Hostess::where('tele',$request->tele)->first();
-        if ($hostess!=null)
-            return response()->json([
-                'err_code'=>1,
-                'err_msg'=>'该手机号已经注册了哦！'
-            ]);
-        
         return $next($request);
     }
 }
