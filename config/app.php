@@ -211,4 +211,8 @@ return [
 
     ],
 
+    /* 选手照片url */
+    'img'=>env('APP_URL', 'http://localhost').'/public/storage/img',
+    /* 选手音频url */
+    'aud'=>env('APP_URL', 'http://localhost').'/public/storage/aud',
 ];
