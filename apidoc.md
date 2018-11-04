@@ -43,7 +43,7 @@
             name: string,           // 姓名
             id: int,                // 号数
             declaration: string,    // 个人宣言
-            audiosrc: string        // 音频url
+            audiosrc: string,       // 音频url
             votes: number           // 投票数
         }
 
@@ -51,7 +51,7 @@
 
 - 路由: **api/Vote**
 - 请求方法: **POST**
-- 请求内容: 
+- 请求内容:
 
     |字段|格式|说明|
     |-|-|-|
