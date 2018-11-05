@@ -60,18 +60,4 @@ class LoveHostessVote extends Controller
         ]);
     }
 
-    public function testLogin(Request $request)
-    {
-        $request->session()->put([
-            'openid' => 'AHKDHFOAHIHFPOIWQHOIHFOEWFOISJDAmmF',
-            'nickname' => 'test',
-            'headpic' => '/123',
-        ]);
-        return 'success';
-    }
-    public function testLogout(Request $request)
-    {
-        $request->session()->flush();
-        return 'out success';
-    }
 }

@@ -19,11 +19,18 @@ Route::any('/date',functIon() {
     return date('Y-m-d');
 });
 
-Route::any('/testLogin','LoveHostessVote@testLogin')->middleware('web');
-// Route::any('/testLogout','LoveHostessVote@testLogout')->middleware('web');
+Route::any('/testLogin',function(Request $request){
+    $request->session()->put([
+        'openid' => 'AHKDHFOAHIHFPOIWQHOIHFOEWFOISJDAmmF',
+        'nickname' => 'test',
+        'headpic' => '/123',
+    ]);
+    return 'login success';
+})->middleware('web');
+
 Route::any('/testLogout',function(Request $request){
     $request->session()->flush();
-    return 'success';
+    return 'logout success';
 })->middleware('web');
 
 
