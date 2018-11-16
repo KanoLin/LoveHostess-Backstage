@@ -32,7 +32,7 @@ class LoveHostessVote extends Controller
 
     public function vote(Request $request)
     {
-        $err_code = 1;
+        $err_code = -1;
         $err_msg = '服务器累了，让它休息一下~';
         DB::transaction(function () use (&$err_code, &$err_msg, $request) {
             $final = FinalHostess::find($request->id)->first();

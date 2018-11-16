@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,4 +40,18 @@ Route::post('/api/signUp','LoveHostessRegister@register')->middleware('validate'
 Route::middleware('web')->group(function(){
     Route::post('/api/Info','LoveHostessVote@Info');
     Route::post('/api/Vote','LoveHostessVote@Vote')->middleware('login');
+});
+
+Route::get('/img/{img_name}',function($name){
+    return response()->file(storage_path('app/public').'/img/'.$name,['Content-type'=>'image/png']);
+});
+
+Route::get('/aud/{aud_name}',function($name){
+    $size=filesize(storage_path('app/public').'/aud/'.$name);
+    return response()->file(storage_path('app/public').'/aud/'.$name,[
+            'Content-type'=>'audio/mp3',
+            'Content-Disposition'=>'inline;filename="'.$name.'"',
+            'Accept-Ranges'=>'0-'.($size-1),
+            'Content-Length'=>$size,
+    ]);
 });
