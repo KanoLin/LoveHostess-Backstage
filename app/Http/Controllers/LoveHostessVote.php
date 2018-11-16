@@ -15,8 +15,10 @@ class LoveHostessVote extends Controller
         $back = array();
         foreach ($fhs as $fh) {
             $information = array();
-            $ary=[];
-            foreach($fh->imgsrc as $img){
+            $ary=array();
+            $imgs=array();
+            $imgs=json_decode($fh->imgsrc);
+            foreach($imgs as $img){
                 $ary[]=config('app.img') . '/' .$img;
             }
             $information['imgsrc'] = $ary;
