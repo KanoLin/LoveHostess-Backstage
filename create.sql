@@ -19,11 +19,10 @@ CREATE TABLE IF NOT EXISTS finalhostess(
     `name`           VARCHAR(20)       NOT NULL DEFAULT '' COMMENT '选手姓名',
     `grade`          VARCHAR(20)       NOT NULL DEFAULT '' COMMENT '选手年级',
     `academy`        VARCHAR(50)       NOT NULL DEFAULT '' COMMENT '选手学院',
-    `tele`           VARCHAR(20)       NOT NULL DEFAULT '' COMMENT '选手电话',
     `declaration`    TEXT              NOT NULL            COMMENT '选手宣言',
     `imgsrc`         VARCHAR(255)      NOT NULL DEFAULT '' COMMENT '选手照片',
     `audiosrc`       VARCHAR(255)      NOT NULL DEFAULT '' COMMENT '选手声音',         
-    `votes`          INT UNSIGNED      NOT NULL DEFAULT 0 COMMENT '选手投票数',
+    `votes`          INT UNSIGNED      NOT NULL DEFAULT 0  COMMENT '选手投票数',
     `created_at`     DATETIME          NOT NULL            COMMENT '创建时间',
     `updated_at`     DATETIME          NOT NULL            COMMENT '修改时间'
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='决赛选手表';

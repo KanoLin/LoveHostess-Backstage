@@ -15,7 +15,11 @@ class LoveHostessVote extends Controller
         $back = array();
         foreach ($fhs as $fh) {
             $information = array();
-            $information['imgsrc'] = config('app.img') . '/' . $fh->imgsrc;
+            $ary=[];
+            foreach($fh->imgsrc as $img){
+                $ary[]=config('app.img') . '/' .$img;
+            }
+            $information['imgsrc'] = $ary;
             $information['name'] = $fh->name;
             $information['id'] = $fh->id;
             $information['declaration'] = $fh->declaration;
