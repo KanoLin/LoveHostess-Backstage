@@ -42,7 +42,7 @@ Route::post('/api/checkLogin', function () {
         'err_code' => 0,
         'err_msg' => ''
     ]);
-})->middleware('login');
+})->middleware(['web','login']);
 Route::middleware('web')->group(function () {
     Route::post('/api/Info', 'LoveHostessVote@Info');
     Route::post('/api/Vote', 'LoveHostessVote@Vote')->middleware('login');
