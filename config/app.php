@@ -212,7 +212,9 @@ return [
     ],
 
     /* 选手照片url */
-    'img'=>env('APP_URL', 'http://localhost').'/public/storage/img',
+    'img'=>env('APP_URL', 'http://localhost').'/public/img',
     /* 选手音频url */
-    'aud'=>env('APP_URL', 'http://localhost').'/public/storage/aud',
+    'aud'=>env('APP_URL', 'http://localhost').'/public/aud',
+    /* 每分钟单选手投票上限 */
+    'vote_num'=>50,
 ];

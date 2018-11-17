@@ -16,8 +16,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('/date', function () {
-    return date('Y-m-d');
+Route::any('/date', function (Request $request) {
+    return dump($request->ip());
 });
 
 Route::any('/testLogin', function (Request $request) {
@@ -45,7 +45,7 @@ Route::post('/api/checkLogin', function () {
 })->middleware(['web','login']);
 Route::middleware('web')->group(function () {
     Route::post('/api/Info', 'LoveHostessVote@Info');
-    Route::post('/api/Vote', 'LoveHostessVote@Vote')->middleware('login');
+    Route::post('/api/Vote', 'LoveHostessVote@Vote')/* ->middleware('login') */;
 });
 
 Route::get('/img/{img_name}', function ($name) {
