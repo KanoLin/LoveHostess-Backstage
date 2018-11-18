@@ -16,7 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('/date', function (Request $request) {
+/* Route::any('/date', function (Request $request) {
     return dump($request->ip());
 });
 
@@ -32,8 +32,7 @@ Route::any('/testLogin', function (Request $request) {
 Route::any('/testLogout', function (Request $request) {
     $request->session()->flush();
     return 'logout success';
-})->middleware('web');
-
+})->middleware('web'); */
 
 Route::post('/api/signUp', 'LoveHostessRegister@register')->middleware('validate');
 
@@ -43,9 +42,10 @@ Route::post('/api/checkLogin', function () {
         'err_msg' => ''
     ]);
 })->middleware(['web','login']);
+
 Route::middleware('web')->group(function () {
     Route::post('/api/Info', 'LoveHostessVote@Info');
-    Route::post('/api/Vote', 'LoveHostessVote@Vote')/* ->middleware('login') */;
+    Route::post('/api/Vote', 'LoveHostessVote@Vote')->middleware('login');
 });
 
 Route::get('/img/{img_name}', function ($name) {

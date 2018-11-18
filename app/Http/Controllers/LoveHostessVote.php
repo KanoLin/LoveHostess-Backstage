@@ -38,24 +38,15 @@ class LoveHostessVote extends Controller
 
     public function vote(Request $request)
     {
-        
-        $request->session()->put([
-            'openid' => 'This is test openid + '.rand(1,500),
-            'nickname' => 'testname'.rand(1,500),
-            'headpic' => '/123',
-        ]);
-        
-        
-        
         $err_code = -1;
         $err_msg = '服务器累了，让它休息一下~';
-        if (!$request->has('id') || $request->get('id')>11)
+        if (($request->id==null) || ($request->get('id')>11))
             return response()->json([
                 'err_code' =>-2,
                 'err_msg' => '非法操作！',
         ]);
         DB::transaction(function () use (&$err_code, &$err_msg, $request) {
-            $final = FinalHostess::find($request->id)->first();
+            $final = FinalHostess::find($request->id);
             $session = $request->session()->all();
             $user = Vote::where('openid', $session['openid'])->latest('time')->first();
             $num=Vote::where([
@@ -71,7 +62,9 @@ class LoveHostessVote extends Controller
                     'openid' => $session['openid'],
                     'nickname' => $session['nickname'],
                     'headpic' => $session['headpic'],
+                    'ip' => $request->ip(),
                     'time' => date('Y-m-d'),
+                    'final_id' => $request->id,
                 ]);
                 $final->votes = $final->votes + 1;
                 $final->save();

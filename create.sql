@@ -17,8 +17,6 @@ CREATE TABLE IF NOT EXISTS hostess(
 CREATE TABLE IF NOT EXISTS finalhostess(
     `id`             INT AUTO_INCREMENT PRIMARY KEY        COMMENT '选手ID',
     `name`           VARCHAR(20)       NOT NULL DEFAULT '' COMMENT '选手姓名',
-    `grade`          VARCHAR(20)       NOT NULL DEFAULT '' COMMENT '选手年级',
-    `academy`        VARCHAR(50)       NOT NULL DEFAULT '' COMMENT '选手学院',
     `declaration`    TEXT              NOT NULL            COMMENT '选手宣言',
     `imgsrc`         VARCHAR(255)      NOT NULL DEFAULT '' COMMENT '选手照片',
     `audiosrc`       VARCHAR(255)      NOT NULL DEFAULT '' COMMENT '选手声音',         
@@ -33,6 +31,7 @@ CREATE TABLE IF NOT EXISTS votes(
     `openid`         VARCHAR(255)      NOT NULL DEFAULT '' COMMENT '微信id',   
     `nickname`       VARCHAR(50)       NOT NULL DEFAULT '' COMMENT '微信昵称',
     `headpic`        VARCHAR(255)      NOT NULL DEFAULT '' COMMENT '微信头像url',
+    `ip`             VARCHAR(20)       NOT NULL DEFAULT '' COMMENT '请求ip',
     `time`           DATE              NOT NULL DEFAULT '1970-01-01' COMMENT '用户上一次投票时间',    
     `final_id`       INT               NOT NULL DEFAULT 0  COMMENT '投票选手id',
     `created_at`     DATETIME          NOT NULL            COMMENT '创建时间',
