@@ -39,7 +39,7 @@
 
         information 对象的属性定义
         information:{
-            imgsrc: string,         // 照片url
+            imgsrc: string[url1,url2,url3],         // 照片url:正方形、矩形、圆形
             name: string,           // 姓名
             id: int,                // 号数
             declaration: string,    // 个人宣言
@@ -63,3 +63,14 @@
     |-|-|-|
     |err_code|int|同上|
     |err_msg|string|除一般错误信息外，如第二次提交同样返回错误信息|
+
+### 检查登陆
+
+- 路由: **api/checkLogin**
+- 请求方法: **POST**
+- 返回参数
+
+    |字段|格式|说明|
+    |-|-|-|
+    |err_code|int|同上|
+    |err_msg|string|已登陆返回''|
