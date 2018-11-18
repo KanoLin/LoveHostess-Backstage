@@ -72,7 +72,7 @@ class LoveHostessVote extends Controller
                 $err_msg = '';
             } else {
                 $err_code = 2;
-                $err_msg = '今天已经投过票了哦~';
+                $err_msg = "每人每天只有一次投票机会哦~<br>您今天已投票，明天再来pick吧~";
             }
         }, 3);
         return response()->json([
