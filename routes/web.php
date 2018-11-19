@@ -48,8 +48,8 @@ Route::middleware('web')->group(function () {
     Route::post('/api/Vote', 'LoveHostessVote@Vote')->middleware('login');
 });
 
-Route::get('/img/{img_name}', function ($name) {
-    return response()->file(storage_path('app/public') . '/img/' . $name, ['Content-type' => 'image/png']);
+Route::get('/img/{subdir}/{img_name}', function ($subdir,$name) {
+    return response()->file(storage_path('app/public') . '/img/' . $subdir . '/' . $name, ['Content-type' => 'image/png']);
 });
 
 
